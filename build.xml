@@ -27,7 +27,7 @@
 
  <property name="Name" value="Facebook's realtime distributed database, powered by Apache Hadoop based on 0.20-append branch"/>
   <property name="name" value="hadoop"/>
-  <property name="version" value="0.20.1-dev"/>
+  <property name="version" value="0.20.1-fb"/>
   <property name="final.name" value="${name}-${version}"/>
   <property name="year" value="2009"/>
 
@@ -1059,7 +1059,7 @@
   <!-- ================================================================== -->
   <!--                                                                    -->
   <!-- ================================================================== -->
-  <target name="package" depends="compile, jar, javadoc, docs, api-report, examples, tools-jar, jar-test, ant-tasks, package-librecordio"
+  <target name="package" depends="compile, jar, tools-jar, ant-tasks, package-librecordio"
 	  description="Build distribution">
     <mkdir dir="${dist.dir}"/>
     <mkdir dir="${dist.dir}/lib"/>
@@ -1110,9 +1110,9 @@
       <fileset dir="${conf.dir}" excludes="**/*.template"/>
     </copy>
 
-    <copy todir="${dist.dir}/docs">
+    <!-- <copy todir="${dist.dir}/docs">
       <fileset dir="${build.docs}"/>
-    </copy>
+    </copy> -->
 
     <copy file="ivy.xml" tofile="${dist.dir}/ivy.xml"/>
 
